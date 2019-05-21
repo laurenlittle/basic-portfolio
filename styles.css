@@ -10,9 +10,9 @@ body {
   display: grid;
   grid-template-rows: 10% 85% 5%;
   grid-template-areas:
-  "header"
-  "main-container"
-  "footer";
+    "header"
+    "main-container"
+    "footer";
 }
 
 a,
@@ -50,16 +50,76 @@ header h1 {
   font-size: 2.5em;
 }
 
-nav {
-  grid-column: 2 / span 2;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+.logo-container {
+  margin-left: 30px;
+}
+
+#navigation {
+  position: fixed;
+  top: 0;
+  width: 50%;
+  padding: 20px;
+  height: 100%;
+  max-width: 400px;
+  background: rgb(110, 52, 202);
+  box-shadow: -3px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#navigation:not(:target) {
+  right: -100%;
+  transition: right 1.5s;
+}
+
+#navigation:target {
+  right: 0;
+  transition: right 1s;
+}
+
+#navigation ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 nav ul li {
-  display: inline;
-  margin: 0 20px 0 20px;
+  list-style: none;
+  padding: 18px 0;
+  border-bottom: 1px solid #fff;
+}
+
+.menu-item,
+.menu-item:link,
+.menu-item:visited {
+  color: #fff;
+}
+
+.open-nav {
+  grid-column: 3;
+}
+
+@media only screen and (min-width:768px) {
+
+  #navigation {
+    grid-column: 2 / span 2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: none;
+    position: initial;
+    box-shadow: none;
+  }
+
+  nav ul li a {
+    position: initial;
+    display: inline;
+    margin: 0 20px 0 20px;
+  }
+
+  .menu-item,
+  .menu-item:link,
+  .menu-item:visited {
+    color: #333;
+  }
 }
 
 
@@ -67,7 +127,7 @@ nav ul li {
  * Main Container Styles
  * ----------------- */
 
- .main-container {
+.main-container {
   grid-area: main-container;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
@@ -75,9 +135,9 @@ nav ul li {
 
 .column-1,
 .column-2 {
- display: flex;
- justify-content: space-around;
- align-items: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .column-2 {
@@ -110,19 +170,30 @@ footer {
   grid-area: footer;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  /* border-top: 1px solid rgba(255, 255, 255, 0.18); */
 }
 
 .social-icon {
-  height: 30px;
-  width: 30px;
   margin: auto 5px;
 }
 
-.linkedin-logo {
-  height: 30px;
-  width: 30px;
+.copyright-container,
+.contact-link-container {
+  justify-self: center;
 }
+
+@media only screen and (min-width:768px) {
+  .copyright-container {
+    justify-self: start;
+    margin-left: 30px;
+  }
+
+  .contact-link-container {
+    justify-self: end;
+    margin-right: 30px;
+  }
+}
+
 
 /* -----------------
  * About Page Styles
