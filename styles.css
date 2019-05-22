@@ -4,15 +4,16 @@
 
 body {
   margin: 0;
+  padding: 0 30px;
   height: 100vh;
   color: #111;
   font-family: 'Nunito', sans-serif;
   display: grid;
   grid-template-rows: 10% 85% 5%;
   grid-template-areas:
-    "header"
-    "main-container"
-    "footer";
+  "header"
+  "main-container"
+  "footer";
 }
 
 a,
@@ -81,7 +82,7 @@ header h1 {
   list-style: none;
 }
 
-nav ul li {
+#navigation ul li {
   list-style: none;
   padding: 18px 0;
   border-bottom: 1px solid #fff;
@@ -97,28 +98,30 @@ nav ul li {
   grid-column: 3;
 }
 
+.desktop-navigation {
+  display: none;
+}
+
 @media only screen and (min-width:768px) {
 
-  #navigation {
+  .desktop-navigation {
     grid-column: 2 / span 2;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background: none;
-    position: initial;
-    box-shadow: none;
   }
 
-  nav ul li a {
+  .desktop-navigation ul li {
     position: initial;
     display: inline;
-    margin: 0 20px 0 20px;
+    margin: 0 3px 0 20px;
+    list-style: none;
+    color: #333;
   }
 
-  .menu-item,
-  .menu-item:link,
-  .menu-item:visited {
-    color: #333;
+  #navigation,
+  .open-nav {
+    display: none;
   }
 }
 
@@ -135,9 +138,9 @@ nav ul li {
 
 .column-1,
 .column-2 {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
 }
 
 .column-2 {
@@ -185,12 +188,10 @@ footer {
 @media only screen and (min-width:768px) {
   .copyright-container {
     justify-self: start;
-    margin-left: 30px;
   }
 
   .contact-link-container {
     justify-self: end;
-    margin-right: 30px;
   }
 }
 
