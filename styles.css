@@ -14,6 +14,8 @@ body {
   "header"
   "main-container"
   "footer";
+  border: 3px solid #8682ed;
+  border-bottom: none;
 }
 
 a,
@@ -27,7 +29,8 @@ a:visited {
 a:focus,
 a:active,
 a:hover {
-  color: rgb(110, 52, 202);
+  /* color: rgb(110, 52, 202); */
+  color: #5b479b;
 }
 
 /* TODO remove these styles */
@@ -45,14 +48,16 @@ header {
   grid-area: header;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  border-bottom: 2px solid #e6e6e6;
 }
 
 header h1 {
   font-size: 2.5em;
 }
 
-.logo-container {
-  margin-left: 30px;
+.logo-img {
+  height: 90px;
+  width: 90px;
 }
 
 #navigation {
@@ -63,6 +68,7 @@ header h1 {
   height: 100%;
   max-width: 400px;
   background: rgb(110, 52, 202);
+  background: #5b479b;
   box-shadow: -3px 0 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -90,12 +96,24 @@ header h1 {
 
 .menu-item,
 .menu-item:link,
-.menu-item:visited {
+.menu-item:visited,
+.close-nav:link,
+.close-nav:visited {
   color: #fff;
 }
 
 .open-nav {
   grid-column: 3;
+  font-size: 2em;
+  justify-self: end;
+  align-self: center;
+}
+
+.close-nav,
+.close-nav:link,
+.close-nav:visited {
+  color: #fff;
+  font-size: 1.5em;
 }
 
 .desktop-navigation {
@@ -188,10 +206,12 @@ footer {
 @media only screen and (min-width:768px) {
   .copyright-container {
     justify-self: start;
+    /* margin-left: 30px; */
   }
 
   .contact-link-container {
     justify-self: end;
+     /* margin-right: 30px; */
   }
 }
 
